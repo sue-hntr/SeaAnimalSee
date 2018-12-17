@@ -30,19 +30,44 @@ $(document).ready(function(){
 // Object of an Array of Objects
     //once there is a reponse what happens
       .then(function(response) {
+        var myObj = response.data;
+        var myObj2 = (myObj[1]["images"]["original"]["url"]);
+        // console.log(typeof myObj);
+
+        // console.log(JSON.stringify(myObj[1]["images"]["original"]["url"]));
+        // var myObj2 = []
         // var z = JSON.stringify("z: " + response);
-        var o = response.data[0].url;
-        console.log("array " + o);
+        // var o = response.data[0].url;
+        // console.log("array " + o);
         // var e = JSON.stringify("e: " + response.data);
         // console.log(response);
         // console.log(e);
       //from the JSON response pull the IMG information
-        var z = JSON.stringify(response.data[0].url);
-        var b = "" + z + "";
-        var c = JSON.stringify(b);
-        console.log("b " + b);
+
+
+        // var z = JSON.stringify(response.data[0].url);
+        // var b = "" + z + "";
+        // var c = JSON.stringify(b);
+        // console.log("b " + b);
         // var d = JSON.stringify(imageUrl);
         // console.log(d);
+        // console.log(typeof response);  
+       
+
+      
+
+        // myObj = {
+        //   "name":"John",
+        //   "age":30,
+        //   "cars": {
+        //     "car1":"Ford",
+        //     "car2":"BMW",
+        //     "car3":"Fiat"
+        //   }
+        //  }
+// x = myObj.cars.car2;
+// // or:
+// x = myObj.cars["car2"];
 
 
 
@@ -53,12 +78,11 @@ $(document).ready(function(){
 
 
 
-        
         //create an IMG tag to begin displaying image 
         var animalImage = $("<img>");
 
         //pull the unique URL info and insert a alt attribute for cat image 
-        animalImage.attr('src', c);
+        animalImage.attr('src', myObj2);
         // animalImage.attr("alt", "sea animal image");
         console.log(JSON.stringify(animalImage));
 
