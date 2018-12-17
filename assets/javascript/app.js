@@ -1,12 +1,11 @@
-///////// Search Giphy ////////////    
 
-
-///////// Add 10 Gifs with Text at Bottom ////////////
-$(document).ready(function(){
+///////// Search Giphy and Add 10 Gifs with Text at Bottom ////////////
+// $(document).ready(function(){
   $(".seaAnimal").on("click", function(event) {
     event.preventDefault();
     // console.log($(this));
     console.log("testing");
+    $("#images").empty();
       //put URL into a variable to grab gif with 'data-name' in search
       var giphyURLApi = "https://api.giphy.com/v1/gifs/search?api_key=3zXCEbPoYOdjO9AcwJIkjuf5zi3OnxO5";
       var searchIt = $(this).data('name');
@@ -35,7 +34,11 @@ $(document).ready(function(){
             var animalImage = $("<img>");
           //pull the unique URL info and insert a alt attribute for sea animal image 
             animalImage.attr('src', imageStillUrl);
-            animalImage.attr("alt", "sea animal image");
+            animalImage.attr('data-still', imageStillUrl);
+            animalImage.attr('data-animate', imageAnimateUrl);
+            animalImage.attr('data-state', "still")
+            animalImage.addClass('gif');
+            // animalImage.attr("alt", "sea animal image");
           //create the code for the captions tag  
             var imageCaption = $('<p>').text("^ rating: " + ratingImage);
             
@@ -45,10 +48,12 @@ $(document).ready(function(){
             $("#images").prepend(gifDiv);
         //attach the rating text to the rating id
             x++;
-        }
+        } //close while
       }); //close .then
   }); //close button
-}); //close doc ready
+  
+// }); //close doc ready 
+
 
 /////THIS CODE WORKS PERFECTLY FOR ONE IMAGE. DO NOT DELETE UNTIL READY ////////
 // $(document).ready(function(){
@@ -93,8 +98,21 @@ $(document).ready(function(){
 // }); //close doc ready
 
 ///////// Stop & Start Gifs ////////////
+$("<img>").on("click", function() {
+  var state1 = $(this).data('state');
+  console.log(state1); 
+});
 
-
+  // var state = $(this).attr('data-state');
+  // console.log(state);
+//   if (state ==="still"){
+//     $(this).attr("src", $(this).attr("data-animate"));
+//     $(this).attr("data-state", "animate");
+//   } else{
+//     $(this).attr("src", $(this).attr("data-still"));
+//     $(this).attr("data-state", "still");
+//   }
+// });
 
 ///////// Add Button ////////////
     

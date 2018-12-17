@@ -1947,13 +1947,7 @@ var fixit = {
        "response_id":"5c15b2ae62766a77678bee39"
     }
  }
- function listAllProperties(fixit) {
-	var objectToInspect;     
-	var result = [];
-	
-	for(objectToInspect = fixit; objectToInspect !== null; 
-           objectToInspect = Object.getPrototypeOf(objectToInspect)) {  
-        result = result.concat(
-            Object.getOwnPropertyNames(objectToInspect)
-        );  
-    }
+ response is the Object.
+ inside the object is one key pair which is data: []
+  array contains an array of objects
+  Object Notation
